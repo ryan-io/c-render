@@ -1,0 +1,3 @@
+﻿main.cpp(13,7): warning : unused variable 'halfW' [-Wunused-variable]
+main.cpp(14,7): warning : unused variable 'halfH' [-Wunused-variable]
+  Project1.vcxproj -> C:\Development\c-renderer\core\x64\Debug\core.exe
