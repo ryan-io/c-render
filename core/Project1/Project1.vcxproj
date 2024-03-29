@@ -138,6 +138,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="geometry.h" />
+    <ClInclude Include="obj.h" />
     <ClInclude Include="render.h" />
     <ClInclude Include="tgaimage.h" />
   </ItemGroup>
