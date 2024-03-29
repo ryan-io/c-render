@@ -51,7 +51,7 @@ namespace Geometry
 	template <class T>
 	struct Vector3
 	{
-		union
+		union 
 		{
 			struct
 			{
@@ -71,7 +71,7 @@ namespace Geometry
 		}
 
 
-		Vector3(const T _u, const T _v) : u(_u), v(_v)
+		Vector3(const T _u, const T _v, const T _w) : u(_u), v(_v), w(_w)
 		{
 		}
 
