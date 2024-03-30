@@ -44,14 +44,13 @@ namespace Geometry
 			return Vector2<T>{this->u * v.u, this->v * v.v};
 		}
 
-		template <class>
-		friend std::ostream& operator <<(std::ostream& s, Vector2<T>& v);
+		friend std::ostream& operator<<(std::ostream& s, const Vector2<T>& v);
 	};
 
 	template <class T>
 	struct Vector3
 	{
-		union 
+		union
 		{
 			struct
 			{
@@ -63,7 +62,7 @@ namespace Geometry
 				T x, y, z;
 			};
 
-			T raw[2];
+			T raw[3];
 		};
 
 		Vector3(): u(0), v(0), w(0)
@@ -90,21 +89,20 @@ namespace Geometry
 			return Vector3<T>{this->u * v.u, this->v * v.v, this->w * v.w};
 		}
 
-		template <class>
-		friend std::ostream& operator <<(std::ostream& s, Vector3<T>& v);
+		friend std::ostream& operator<<(std::ostream& s, const Vector3<T>& v);
 	};
+
+	template<class T>
+	std::ostream& operator<<(std::ostream& s, const Vector3<T>& v)
+	{
+		s << "(" << v.u << ", " << v.v << ", " << v.w << ")";
+		return s;
+	}
 
 	template<class T>
 	std::ostream& operator<<(std::ostream& s, const Vector2<T>& v)
 	{
 		s << "(" << v.u << ", " << v.v << ")";
-		return s;
-	}
-
-	template<class T>
-	std::ostream& operator<<(std::ostream& s, const Vector3<T>& v)
-	{
-		s << "(" << v.u << ", " << v.v << ", "<<v.w<<")";
 		return s;
 	}
 
