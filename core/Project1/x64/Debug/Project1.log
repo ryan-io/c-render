@@ -1,6 +1,7 @@
 ﻿  main.cpp
-C:\Development\c-render\core\Project1\main.cpp(85,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Development\c-render\core\Project1\main.cpp(86,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Development\c-render\core\Project1\main.cpp(87,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Development\c-render\core\Project1\main.cpp(88,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Development\c-render\core\Project1\main.cpp(38,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Development\c-render\core\Project1\main.cpp(68,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Development\c-render\core\Project1\main.cpp(69,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Development\c-render\core\Project1\main.cpp(70,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Development\c-render\core\Project1\main.cpp(71,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Project1.vcxproj -> C:\Development\c-render\core\x64\Debug\core.exe

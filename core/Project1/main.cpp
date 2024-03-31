@@ -3,7 +3,8 @@
 #include "geometry.h"
 #include "obj.h"
 
-
+//https://www.youtube.com/channel/UC0DQ2c1QuXGf6k4s5Eh4xDQ/playlists
+//https://gabrielgambetta.com/computer-graphics-from-scratch/
 const TGAColor white = TGAColor(255, 255, 255, 255);
 const TGAColor red = TGAColor(255, 0, 0, 255);
 
@@ -21,51 +22,34 @@ void drawLine(int x0, int y0, int x1, int y1, TGAImage& img, const TGAColor& clr
 	*/
 	// slope; rise/run
 
-	const int deltaY{y1 - y0};
-	const int deltaX{x1 - x0};
-	const int errorPos{2 * (deltaY - deltaX)};
-	const int errorNeg{2 * deltaY};
-	bool steep{};
-
-	// transpose the line if it is deemed steep
-	int absX = std::abs(deltaX), absY = std::abs(deltaY);
-
-	if (absX < absY) // means x is 'longer' than y
-	{
+	bool steep = false;
+	if (std::abs(x0 - x1) < std::abs(y0 - y1)) {
 		std::swap(x0, y0);
 		std::swap(x1, y1);
 		steep = true;
 	}
-
-	if (x0 > x1) // means line is going from top-left of raster to bottom-right of raster
-	{
+	if (x0 > x1) {
 		std::swap(x0, x1);
 		std::swap(y0, y1);
 	}
 
-	int d{errorNeg};
-	for (int x = x0, y = y0; x <= x1; x++)
-	{
-		if (d > 0)
-		{
-			y++;
-			d += errorPos;
-		}
-		else
-		{
-			d += errorNeg;
-		}
-
-		if (steep)
+	const float dx = static_cast<float>(x1-x0);
+	for (int x = x0; x <= x1; x++) {
+		float step = (x - x0) / dx;
+		int y = y0 * (1 - step) + y1 * step;
+		if (steep) {
 			img.set(y, x, clr);
-		else img.set(x, y, clr);
+		}
+		else {
+			img.set(x, y, clr);
+		}
 	}
 }
 
 int main(int argc, char** argv)
 {
-	constexpr int width{ 1000 };
-	constexpr int height{ 1000 };
+	constexpr int width{ 2003 };
+	constexpr int height{ 2003 };
 	TGAImage image(width, height, TGAImage::RGB);
 	const TGAColor& whiteRef{white};
 	const TGAColor& redRef{red};
